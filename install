@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# This script is based on the Nix install script.
+
+{ # Prevent execution if this script was only partially downloaded
+
+    set -e
+
+    if [ "$(id -u)" -eq 0 ]; then
+        echo 'error: please run this script as a regular user'
+        exit 1
+    fi
+
+    if [ "$(uname -s)" = Darwin ]; then
+        echo 'error: will only work on Linux'
+        exit 1
+    fi
+
+    echo "--- Congratulations! ---"
+    echo "--- Dapptools are now installed "
+
+} # End of wrapping
